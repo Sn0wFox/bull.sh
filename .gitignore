@@ -1,2 +1,8 @@
 # IDE related files
 .idea/
+
+# Vendor modules
+node_modules/
+
+# Build
+dist/

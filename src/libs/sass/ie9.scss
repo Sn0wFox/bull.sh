@@ -1,7 +1,7 @@
-@import 'libs/vars';
-@import 'libs/functions';
-@import 'libs/mixins';
-@import 'libs/skel';
+@import 'vars';
+@import 'functions';
+@import 'mixins';
+@import 'skel';
 
 /*
 	Spectral by HTML5 UP
@@ -51,7 +51,7 @@
 
 	#banner,
 	.wrapper.style4 {
-		background-image: url("../../images/banner.jpg");
+		//background-image: url("../../images/banner.jpg");
 		background-position: center center;
 		background-repeat: no-repeat;
 		background-size: cover;
@@ -109,7 +109,7 @@
 
 	#main {
 		> header {
-			background-image: url("../../images/banner.jpg");
+			//background-image: url("../../images/banner.jpg");
 			background-position: center center;
 			background-repeat: no-repeat;
 			background-size: cover;

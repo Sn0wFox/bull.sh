@@ -1,0 +1,54 @@
+{
+  "name": "bull.sh",
+  "version": "1.0.0",
+  "description": "A website for a school project",
+  "main": "dist/index.html",
+  "scripts": {
+    "pre-prod": "npm install && gulp clean",
+    "prod": "cross-env BULL_BUILD_MODE=prod gulp build",
+    "dev:build": "gulp build",
+    "dev:server": "node src/dev-server.js",
+    "dev": "cross-env BULL_BUILD_MODE=dev concurrently --kill-others \"npm run dev:build\" \"npm run dev:server\"",
+    "debug-prod": "cross-env BULL_DEBUG_MODE=true npm run prod",
+    "debug-dev": "cross-env BULL_DEBUG_MODE=true npm run dev",
+    "test": "echo No tests specified yet && exit(0)"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sn0wFox/bull.sh.git"
+  },
+  "author": "Sn0wFox",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Sn0wFox/bull.sh/issues"
+  },
+  "homepage": "https://github.com/Sn0wFox/bull.sh#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-es2015": "^6.24.1",
+    "colors": "^1.1.2",
+    "concurrently": "^3.5.0",
+    "cross-env": "^5.1.1",
+    "del": "^3.0.0",
+    "express": "^4.16.2",
+    "gulp": "git://github.com/gulpjs/gulp.git#4.0",
+    "gulp-csso": "^3.0.0",
+    "gulp-rev": "^8.1.0",
+    "gulp-rev-replace": "^0.4.3",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.6.1",
+    "gulp-util": "^3.0.8",
+    "node-notifier": "^5.1.2",
+    "progress-bar-webpack-plugin": "^1.10.0",
+    "uglifyjs-webpack-plugin": "^1.0.1",
+    "webpack": "^3.8.1",
+    "webpack-build-notifier": "^0.1.16",
+    "webpack-bundle-analyzer": "^2.9.0",
+    "webpack-manifest-plugin": "^1.3.2",
+    "webpack-stream": "^4.0.0"
+  },
+  "dependencies": {
+    "jquery": "^1.11.3"
+  }
+}

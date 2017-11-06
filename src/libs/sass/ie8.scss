@@ -1,7 +1,7 @@
-@import 'libs/vars';
-@import 'libs/functions';
-@import 'libs/mixins';
-@import 'libs/skel';
+@import 'vars';
+@import 'functions';
+@import 'mixins';
+@import 'skel';
 
 /*
 	Spectral by HTML5 UP
@@ -83,7 +83,7 @@
 
 	#banner,
 	.wrapper.style4 {
-		-ms-behavior: url('assets/js/ie/backgroundsize.min.htc');
+		-ms-behavior: url('../js/ie/backgroundsize.min.htc');
 
 		&:before {
 			display: none;
@@ -106,7 +106,7 @@
 
 	#main {
 		> header {
-			-ms-behavior: url('assets/js/ie/backgroundsize.min.htc');
+			-ms-behavior: url('../js/ie/backgroundsize.min.htc');
 
 			&:before {
 				display: none;
