@@ -4,8 +4,6 @@
 
 // Libs
 import * as $ from 'jquery';
-import 'jquery.scrollex.min';
-import 'jquery.scrolly.min';
 import 'skel.min';
 import 'util';
 import 'main';

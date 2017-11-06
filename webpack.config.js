@@ -6,6 +6,7 @@ const ProgressBarPlugin     = require('progress-bar-webpack-plugin');
 const BundleAnalyzerPlugin  = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const WebpackNotifierPlugin = require('webpack-build-notifier');
 const ManifestPlugin        = require('webpack-manifest-plugin');
+const DirectoryNamedlugin   = require('directory-named-webpack-plugin');
 
 const PROD  = process.env.BULL_BUILD_MODE === 'prod';
 const DEV   = process.env.BULL_BUILD_MODE === 'dev';
@@ -19,7 +20,7 @@ const DEBUG = !!process.env.BULL_DEBUG_MODE;
  */
 module.exports = {
   entry: {
-    vendor: ['jquery'],
+    vendor: ['jquery', 'jquery.scrollex', 'jquery.scrolly'],
     home: './src/index.js'
   },
 
@@ -32,7 +33,12 @@ module.exports = {
 
   resolve: {
     extensions: [ '.js' ],
-    modules: [ path.resolve(__dirname, 'node_modules'), path.resolve(__dirname, 'src/libs/js') ]
+    modules: [ path.resolve(__dirname, 'node_modules'), path.resolve(__dirname, 'src/libs/js') ],
+    plugins: [
+      new DirectoryNamedlugin({
+        honorIndex: true
+      })
+    ]
   },
 
   module: {
