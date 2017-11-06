@@ -20,7 +20,7 @@ const DEBUG = !!process.env.BULL_DEBUG_MODE;
  */
 module.exports = {
   entry: {
-    vendor: ['jquery', 'jquery.scrollex', 'jquery.scrolly'],
+    vendor: ['jquery', 'jquery.scrollex', 'jquery.scrolly', 'jquery-placeholder'],
     home: './src/index.js'
   },
 
