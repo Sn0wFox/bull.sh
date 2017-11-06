@@ -3,9 +3,8 @@
 // import './libs/js/ie/respond.min';
 
 // Libs
-import * as $ from 'jquery';
+// import * as $ from 'jquery';
 import 'skel.min';
-import 'util';
 import 'main';
 
 console.log('it works!');

@@ -20,7 +20,7 @@ const DEBUG = !!process.env.BULL_DEBUG_MODE;
  */
 module.exports = {
   entry: {
-    vendor: ['jquery', 'jquery.scrollex', 'jquery.scrolly', 'jquery-placeholder'],
+    vendor: ['jquery', 'jquery.scrollex', 'jquery.scrolly', 'jquery-placeholder', 'jquery-panel'],
     home: './src/index.js'
   },
 
@@ -34,6 +34,9 @@ module.exports = {
   resolve: {
     extensions: [ '.js' ],
     modules: [ path.resolve(__dirname, 'node_modules'), path.resolve(__dirname, 'src/libs/js') ],
+    alias: {
+      'jquery-panel$': path.resolve(__dirname, 'src/libs/js/util.js')
+    },
     plugins: [
       new DirectoryNamedlugin({
         honorIndex: true
