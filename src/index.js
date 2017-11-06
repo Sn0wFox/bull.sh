@@ -4,10 +4,10 @@
 
 // Libs
 import * as $ from 'jquery';
-import './libs/js/jquery.scrollex.min';
-import './libs/js/jquery.scrolly.min';
-import './libs/js/skel.min';
-import './libs/js/util';
-import './libs/js/main';
+import 'jquery.scrollex.min';
+import 'jquery.scrolly.min';
+import 'skel.min';
+import 'util';
+import 'main';
 
 console.log('it works!');

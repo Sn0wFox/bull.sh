@@ -32,7 +32,7 @@ module.exports = {
 
   resolve: {
     extensions: [ '.js' ],
-    modules: [ path.resolve(__dirname, 'node_modules') ]
+    modules: [ path.resolve(__dirname, 'node_modules'), path.resolve(__dirname, 'src/libs/js') ]
   },
 
   module: {
@@ -54,7 +54,9 @@ module.exports = {
       new webpack.ProvidePlugin({
         $: 'jquery',
         jQuery: 'jquery',
-        'window.jQuery': 'jquery'
+        'window.jQuery': 'jquery',
+        skel: 'skel.min',
+        'window.skel': 'skel.min',
       }),
 
       new webpack.optimize.CommonsChunkPlugin({
