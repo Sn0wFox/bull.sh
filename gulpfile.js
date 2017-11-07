@@ -120,7 +120,7 @@ function buildSass() {
         path.join(__dirname, 'node_modules')
       ]
     }))
-    .pipe(grep(/fonts\/(.*)/, 'assets/fonts/$1/'));
+    .pipe(grep(/"[A-z./0-9-]*fonts\/([^"]*)"/g, '"assets/fonts/$1"'));
 
   if(PROD) {
     stream
@@ -169,13 +169,14 @@ Object.defineProperty(buildHtml, 'name', {value: 'build:html'});
 
 /**
  * Copies static files (e.g. pictures, .ico and things needed)
- * from src/assets into dist/.
+ * into the dist folder.
  */
 function buildAssets() {
   let error = null;
   return merge(
       gulp.src(path.join(ASSETS_ROOT, '/**/*'), {base: SRC_ROOT}),
-      gulp.src(path.join(LIBS_ROOT, 'sass/images/*'), {base: path.join(LIBS_ROOT, 'sass')}))
+      gulp.src(path.join(LIBS_ROOT, 'sass/images/*'), {base: path.join(LIBS_ROOT, 'sass')}),
+      gulp.src(path.join('node_modules', 'font-awesome/fonts/*'), {base: path.join('node_modules', 'font-awesome')}))
     .on('error', function(err) {
       error = err;
       gutil.log('[ERROR]'.red, error.message);
