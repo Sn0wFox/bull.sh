@@ -69,7 +69,7 @@ function init() {
     // Initialize scrolly
     $('.scrolly')
       .scrolly({
-        speed: 1500,
+        speed: 200,
         offset: $header.outerHeight()
       });
 
