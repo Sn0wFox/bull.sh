@@ -5,12 +5,15 @@ const gwebpack  = require('webpack-stream');    // To use webpack with gulp
 const gutil     = require('gulp-util');         // To log anything gulp style
 const gmaps     = require('gulp-sourcemaps');   // To generate Sass source maps
 const grev      = require('gulp-rev');          // To mark files for cache busting
+const grep      = require('gulp-replace');      // To correct fonts paths
 const grevrep   = require('gulp-rev-replace');  // To automatize cache busted imports
 
 const del       = require('del');               // To erase some file during cleaning tasks
 const path      = require('path');              // To manage path expressions correctly
 const webpack   = require('webpack');           // Local webpack lib
 const notifier  = require('node-notifier');     // To show notifications
+const merge     = require('merge-stream');      // To merge several streams
+
 
 require('colors');
 
@@ -22,10 +25,12 @@ const wpconf          = require('./webpack.config.js');         // Local webpack
 const DEV             = process.env.BULL_BUILD_MODE === 'dev';  // Dev mode or not
 const PROD            = process.env.BULL_BUILD_MODE === 'prod'; // Prod mode or not
 const SRC_ROOT        = 'src';
-const ASSETS_FOLDER   = 'assets';
 const DIST_ROOT       = 'dist';
+const ASSETS_FOLDER   = 'assets';
+const LIBS_FOLDER     = 'libs';
 const DIST_ASSETS     = path.join(DIST_ROOT, ASSETS_FOLDER);
 const ASSETS_ROOT     = path.join(SRC_ROOT, ASSETS_FOLDER);
+const LIBS_ROOT       = path.join(SRC_ROOT, LIBS_FOLDER);
 
 const features = [
   '.',
@@ -110,7 +115,12 @@ function buildSass() {
   let stream = gulp
     .src(buildEntries('scss'), {base: path.join(process.cwd(), SRC_ROOT)})
     .pipe(gmaps.init({loadMaps: true, largeFile: true}))
-    .pipe(gsass());
+    .pipe(gsass({
+      includePaths: [
+        path.join(__dirname, 'node_modules')
+      ]
+    }))
+    .pipe(grep(/fonts\/(.*)/, 'assets/fonts/$1/'));
 
   if(PROD) {
     stream
@@ -163,8 +173,9 @@ Object.defineProperty(buildHtml, 'name', {value: 'build:html'});
  */
 function buildAssets() {
   let error = null;
-  return gulp
-    .src(path.join(ASSETS_ROOT, '/**/*'), {base: SRC_ROOT})
+  return merge(
+      gulp.src(path.join(ASSETS_ROOT, '/**/*'), {base: SRC_ROOT}),
+      gulp.src(path.join(LIBS_ROOT, 'sass/images/*'), {base: path.join(LIBS_ROOT, 'sass')}))
     .on('error', function(err) {
       error = err;
       gutil.log('[ERROR]'.red, error.message);
