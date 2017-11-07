@@ -20,6 +20,38 @@ we did everything as if we really were, meaning:
 The present website is meant to be a showcase / business website,
 and will include all the documents listed above, and more.
 
+## Usage
+### Dev
+
+```shell
+npm run dev
+```
+This will build the project in dev mode:
+- Build and bundle js (es6 to es5)
+- Build and bundle sass
+- Copy assets (fonts, pictures...) and html
+- Run the dev server on `http://locahost:3333`
+- Watch `src/` and rebuild upon changes (+ show notifications)
+
+### Prod
+
+```shell
+npm run prod
+```
+This will build the project in prod mode:
+- Build and bundle js (es6 to es5) + optimize / minimize
+- Build and bundle sass + optimize / minimize
+- Copy assets (fonts, pictures...) and html
+- Cache bust css and js
+
+### Debug
+
+```shell
+npm run debug:dev       # Debug in dev mode
+npm run debug:prod      # Debug in prod mode
+```
+Same as dev/prod (depending of the debug mode) but starts a webpack bundle analyzer server as well.
+
 ## Template
 To save some time, this website is widely based on the following template:
 
