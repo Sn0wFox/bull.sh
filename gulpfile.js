@@ -21,7 +21,6 @@ require('colors');
 const wpconf          = require('./webpack.config.js');         // Local webpack config
 const DEV             = process.env.BULL_BUILD_MODE === 'dev';  // Dev mode or not
 const PROD            = process.env.BULL_BUILD_MODE === 'prod'; // Prod mode or not
-console.log(DEV);
 const SRC_ROOT        = 'src';
 const ASSETS_FOLDER   = 'assets';
 const DIST_ROOT       = 'dist';
@@ -145,8 +144,15 @@ Object.defineProperty(buildSass, 'name', {value: 'build:sass'});
  * Copy html files to the dist folder.
  */
 function buildHtml() {
+  let error = null;
   return gulp
     .src(buildEntries('html'), {base: path.join(process.cwd(), SRC_ROOT)})
+    .on('error', function(err) {
+      error = err;
+      gutil.log('[ERROR]'.red, error.message);
+      this.emit('end');
+    })
+    .on('end', () => notify('Html', error))
     .pipe(gulp.dest(DIST_ROOT));
 }
 Object.defineProperty(buildHtml, 'name', {value: 'build:html'});
