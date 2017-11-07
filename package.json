@@ -4,13 +4,13 @@
   "description": "A website for a school project",
   "main": "dist/index.html",
   "scripts": {
-    "pre-prod": "npm install && gulp clean",
+    "preprod": "npm install && npm prune && gulp clean",
     "prod": "cross-env BULL_BUILD_MODE=prod gulp build",
     "dev:build": "gulp build",
     "dev:server": "node src/dev-server.js",
     "dev": "cross-env BULL_BUILD_MODE=dev concurrently --kill-others \"npm run dev:build\" \"npm run dev:server\"",
-    "debug-prod": "cross-env BULL_DEBUG_MODE=true npm run prod",
-    "debug-dev": "cross-env BULL_DEBUG_MODE=true npm run dev",
+    "debug:prod": "cross-env BULL_DEBUG_MODE=true npm run prod",
+    "debug:dev": "cross-env BULL_DEBUG_MODE=true npm run dev",
     "test": "echo No tests specified yet && exit(0)"
   },
   "repository": {

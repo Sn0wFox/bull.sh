@@ -85,8 +85,10 @@ module.exports = {
       }));
 
       plugins.push(new UglifyJSPlugin({
-        compress: true,
-        mangle: true,
+        uglifyOptions: {
+          mangle: true,
+          compress: true
+        },
         sourceMap: true
       }));
 
@@ -94,8 +96,6 @@ module.exports = {
         fileName: 'manifest.js.json'
       }));
 
-      // TODO: remove (see prod warning)
-      plugins.push(new webpack.optimize.DedupePlugin());
     }
 
     // Dev only plugins

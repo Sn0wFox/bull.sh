@@ -61,15 +61,18 @@ gulp.task('build', (done) => {
       notifierOptions.message = error ? '[ERROR] Build failed. See terminal.' : 'Build successful.';
       // notifierOptions.icon = error ? path.join(__dirname, ASSETS_ROOT, 'images/logo-black.png') : path.join(__dirname, ASSETS_ROOT, 'images/logo.png');
       notifier.notify(notifierOptions);
+      gulp.parallel(next)(done);
     } else if(PROD) {
       next.push(cacheBust);
+      gulp.series(next)(done);
+    } else {
+      error = new Error('BULL_BUILD_MODE must either be \'dev\' or \'prod\'');
     }
 
     if(error) {
       gutil.log('[ERROR]'.red, error);
+      done();
     }
-
-    gulp.parallel(next)(done);
   });
 });
 
@@ -200,8 +203,7 @@ function cacheBust() {
       manifest: gulp.src(path.join(DIST_ROOT, 'manifest.css.json'))
     }))
     .pipe(grevrep({
-      manifest: gulp.src(path.join(DIST_ROOT, 'manifest.js.json')),
-      modifyReved: (file) => path.posix.relative(APP_FOLDER, file)
+      manifest: gulp.src(path.join(DIST_ROOT, 'manifest.js.json'))
     }))
     .pipe(gulp.dest(DIST_ROOT));
 }
