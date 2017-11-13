@@ -6,6 +6,7 @@
   "scripts": {
     "preprod": "npm install && npm prune && gulp clean",
     "prod": "cross-env BULL_BUILD_MODE=prod gulp build",
+    "postprod": "gulp clean:node_modules",
     "dev:build": "gulp build",
     "dev:server": "node src/dev-server.js",
     "dev": "cross-env BULL_BUILD_MODE=dev concurrently --kill-others \"npm run dev:build\" \"npm run dev:server\"",

@@ -84,6 +84,13 @@ gulp.task('clean', () => {
 });
 
 /**
+ * Cleans the node_modules folder by removing it.
+ */
+gulp.task('clean:node_modules', () => {
+  return del('node_modules');
+});
+
+/**
  * Watches all .sass .scss .pug files and assets folder,
  * and re-compiles/copies them when they change.
  */
