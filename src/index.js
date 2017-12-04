@@ -6,6 +6,8 @@
 import $ from 'jquery';
 import skel from 'skel.min';
 
+import {runAnimatedScroll} from './commons/common';
+
 // Init page
 init();
 
@@ -28,7 +30,7 @@ function init() {
     // Cache jquery request
     let	$window = $(window),
       $body = $('body'),
-      $wrapper = $('#page-wrapper'),
+      // $wrapper = $('#page-wrapper'),
       $banner = $('#banner'),
       $header = $('#header');
 
@@ -68,9 +70,9 @@ function init() {
 
     // Initialize scrolly
     $('.scrolly')
-      .scrolly({
-        speed: 200,
-        offset: $header.outerHeight()
+      .on('click', (event) => {
+        event.preventDefault();
+        runAnimatedScroll(event.target.hash, 1000);
       });
 
     // Initialize panel menu
