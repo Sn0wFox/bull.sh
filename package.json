@@ -4,7 +4,7 @@
   "description": "A website for a school project",
   "main": "dist/index.html",
   "scripts": {
-    "preprod": "npm install && npm prune && gulp clean",
+    "preprod": "npm install && gulp clean",
     "prod": "cross-env BULL_BUILD_MODE=prod gulp build",
     "postprod": "gulp clean:node_modules",
     "dev:build": "gulp build",
