@@ -1335,7 +1335,7 @@
 
 /* Header */
 
-	#header {
+	.header {
 		@include vendor('transition', 'background-color #{_duration(transitions)} ease');
 		background: _palette(primary);
 		height: 3em;
@@ -1440,7 +1440,7 @@
 
 /* Banner */
 
-	#banner {
+	.banner {
 		@include vendor('display', 'flex');
 		@include vendor('flex-direction', 'column');
 		@include vendor('justify-content', 'center');
@@ -1564,7 +1564,7 @@
 	}
 
 	body.is-loading {
-		#banner {
+		.banner {
 			h2 {
 				@include vendor('transform', 'scale(0.95)');
 				opacity: 0;

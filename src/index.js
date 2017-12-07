@@ -26,11 +26,10 @@ function init() {
   $(function() {
 
     // Cache jquery request
-    let	$window = $(window),
-      $body = $('body'),
-      $wrapper = $('#home-wrapper'),
-      $banner = $('#banner'),
-      $header = $('#header');
+    let	$window = $(window);
+    let $body = $('body');
+    let $banner = $('#bull-banner');
+    let $header = $('#bull-header');
 
     // Disable animations/transitions until the page has loaded.
     $body.addClass('is-loading');
