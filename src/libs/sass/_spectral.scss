@@ -1232,7 +1232,7 @@
 
 /* Page Wrapper + Menu */
 
-	#page-wrapper {
+	.page-wrapper {
 		@include vendor('transition', 'opacity #{_duration(menu)} ease');
 		opacity: 1;
 		padding-top: 3em;
@@ -1320,7 +1320,7 @@
 	}
 
 	body.is-menu-visible {
-		#page-wrapper {
+		.page-wrapper {
 			opacity: 0.35;
 
 			&:before {
@@ -1761,8 +1761,7 @@
 /* Landing */
 
 	body.landing {
-		#page-wrapper {
-			//@include vendor('background-image', ('linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5))', 'url("../../images/banner.jpg")'));
+		.page-wrapper {
 			background-attachment: fixed;
 			background-position: center center;
 			background-repeat: no-repeat;
@@ -1777,7 +1776,7 @@
 
 	body.is-mobile {
 		&.landing {
-			#page-wrapper {
+			.page-wrapper {
 				background: none;
 			}
 

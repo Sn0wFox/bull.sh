@@ -1,24 +1,8 @@
 @import 'libs/sass/spectral';
 @import 'commons/_commons.scss';
 
-#page-wrapper {
-  background: linear-gradient(rgba(0,0,0,0.25), rgba(255,255,255,0.25)), url('https://images.pexels.com/photos/144234/bull-landscape-nature-mammal-144234.jpeg?w=1260&h=750&dpr=2&auto=compress&cs=tinysrgb');
-
-  #banner {
-    p {
-      color: $main_color;
-    }
-    h2 {
-      color: $main_color;
-    }
-
-    a.button.special {
-      background-color: $main_color;
-
-      &:hover {
-        // TODO: design stronger color
-        background-color: $main_color !important;
-      }
-    }
-  }
+#home-wrapper {
+  background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(255, 255, 255, 0.25)), url('https://images.pexels.com/photos/144234/bull-landscape-nature-mammal-144234.jpeg?w=1260&h=750&dpr=2&auto=compress&cs=tinysrgb') no-repeat fixed center center;
+  background-size: cover;
+  padding-top: 0;
 }

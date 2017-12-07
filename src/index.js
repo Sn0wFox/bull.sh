@@ -28,7 +28,7 @@ function init() {
     // Cache jquery request
     let	$window = $(window),
       $body = $('body'),
-      $wrapper = $('#page-wrapper'),
+      $wrapper = $('#home-wrapper'),
       $banner = $('#banner'),
       $header = $('#header');
 
