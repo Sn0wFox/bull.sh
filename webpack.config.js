@@ -20,7 +20,7 @@ const DEBUG = !!process.env.BULL_DEBUG_MODE;
  */
 module.exports = {
   entry: {
-    vendor: ['jquery', 'jquery.scrollex', 'jquery.scrolly', 'jquery-placeholder', 'jquery-panel', 'skel.min'],
+    vendor: ['jquery', 'jquery.scrollex', 'skel.min'],
     home: './src/index.js'
   },
 
