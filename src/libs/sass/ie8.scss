@@ -24,7 +24,7 @@
 /* Form */
 
 	label {
-		color: _palette(accent7, fg-bold);
+		color: _palette(white);
 	}
 
 	input[type="text"],
@@ -32,7 +32,7 @@
 	input[type="email"],
 	select,
 	textarea {
-		border: solid 1px _palette(accent7, border);
+		border: solid 1px _palette(white);
 	}
 
 /* Button */
@@ -42,7 +42,7 @@
 	input[type="button"],
 	button,
 	.button {
-		border: solid 2px _palette(accent7, border);
+		border: solid 2px _palette(white);
 
 		&.special {
 			border: 0 !important;
