@@ -5,6 +5,7 @@
 // Libs
 import $ from 'jquery';
 import skel from 'skel.min';
+import 'skel-util';
 
 import {runAnimatedScroll} from './commons/common';
 
