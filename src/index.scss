@@ -1,8 +1,48 @@
 @import 'libs/sass/spectral';
 @import 'commons/_commons.scss';
 
+@import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700);
+
+.bull-wrapper {
+  // To avoid hiding content with the navbar (3em height + 1em for spacing)
+  padding-top: 4em;
+}
+
 #bull-home-wrapper {
   background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(255, 255, 255, 0.25)), url('https://images.pexels.com/photos/144234/bull-landscape-nature-mammal-144234.jpeg?w=1260&h=750&dpr=2&auto=compress&cs=tinysrgb') no-repeat fixed center center;
   background-size: cover;
   padding-top: 0;
+}
+
+#bull-pres {
+  video {
+    width: 90%;
+  }
+
+  blockquote {
+    border: none;
+    padding: 0;
+    position: relative;
+
+    P {
+      font-family: 'Droid Serif', Serif;
+      font-size: 1.5em;
+
+      .quote {
+        font-size: 3em;
+        position: relative;
+
+        &-begin {
+          top: .25em;
+          left: -.5em;
+        }
+
+        &-end {
+          top: .7em;
+          left: 0.1em;
+          line-height: 0px;
+        }
+      }
+    }
+  }
 }
