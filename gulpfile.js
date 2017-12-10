@@ -128,7 +128,8 @@ function buildSass() {
         path.join(__dirname, 'node_modules')
       ]
     }))
-    .pipe(grep(/"[A-z./0-9-]*fonts\/([^"]*)"/g, '"assets/fonts/$1"'));
+    .pipe(grep(/"[A-z./0-9-]*fonts\/([^"]*)"/g, '"/assets/fonts/$1"'))
+    .pipe(grep(/"[A-z./0-9-]*images\/([^"]*)"/g, '"/assets/images/$1"'));
 
   if(PROD) {
     stream
