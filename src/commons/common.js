@@ -49,7 +49,6 @@ export function initMenu(hash, $body) {
 export function initHeader(hash, $triggeringElement, $window) {
   let $header = $(hash);
   if ($triggeringElement.length > 0 && $header.hasClass('alt')) {
-    console.log('hello');
     $window.on('resize', () => { $window.trigger('scroll'); });
     $triggeringElement.scrollex({
       bottom:     $header.outerHeight() + 1,
