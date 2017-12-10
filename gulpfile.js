@@ -34,9 +34,7 @@ const LIBS_ROOT       = path.join(SRC_ROOT, LIBS_FOLDER);
 
 const features = [
   '.',
-  // 'disclaimer',
-  // '50x',
-  // '404'
+  'communication'
 ];
 
 
