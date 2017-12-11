@@ -1,0 +1,13 @@
+header#bull-header.header.alt
+  h1
+    a(href='/') Bull.sh
+  include menu.mixin.pug
+  +menu({
+    'Accueil': '/',
+    'Communication': '/communication',
+    'Finances': '/finances',
+    'Gestion de projet': '/gestion',
+    'Marketing': '/marketing',
+    'Responsabilité sociétale': '/responsabilites',
+    'Sociologie': '/sociologie'
+  })

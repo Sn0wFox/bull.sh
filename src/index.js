@@ -3,10 +3,11 @@
 // import './libs/js/ie/respond.min';
 
 // Libs
-import $ from 'jquery';
+import $    from 'jquery';
 import skel from 'skel.min';
+import 'skel-util';
 
-import {runAnimatedScroll} from './commons/common';
+import {runAnimatedScroll, initMenu, initHeader} from './commons/common';
 
 // Init page
 init();
@@ -31,7 +32,6 @@ function init() {
     let	$window = $(window);
     let $body = $('body');
     let $banner = $('#bull-banner');
-    let $header = $('#bull-header');
 
     // Disable animations/transitions until the page has loaded.
     $body.addClass('is-loading');
@@ -75,34 +75,10 @@ function init() {
       });
 
     // Initialize panel menu
-    $('#menu')
-      .append('<a href="#menu" class="close"></a>')
-      .appendTo($body)
-      .panel({
-        delay: 500,
-        hideOnClick: true,
-        hideOnSwipe: true,
-        resetScroll: true,
-        resetForms: true,
-        side: 'right',
-        target: $body,
-        visibleClass: 'is-menu-visible'
-      });
+    initMenu('#menu', $body);
 
     // Initialize header
-    if (skel.vars.IEVersion < 9) {
-      $header.removeClass('alt');
-    }
-
-    if ($banner.length > 0 &&	$header.hasClass('alt')) {
-      $window.on('resize', () => { $window.trigger('scroll'); });
-      $banner.scrollex({
-        bottom:     $header.outerHeight() + 1,
-        terminate:	function() { $header.removeClass('alt'); },
-        enter:      function() { $header.addClass('alt'); },
-        leave:      function() { $header.removeClass('alt'); }
-      });
-    }
+    initHeader('#bull-header', $banner, $window)
 
   });
 

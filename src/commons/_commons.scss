@@ -1,0 +1,43 @@
+@import '../libs/sass/vars';
+
+// Add a class to set the background color to any color
+// in the $palette variable (2 levels deep).
+.bg- {
+  $deep: (accent, grey);
+  @each $color-key, $color in $palette {
+    @if index($deep, $color-key) {
+      @each $key, $value in $color {
+        &#{$color-key}-#{$key} {
+          background-color: $value;
+        }
+      }
+    } @else {
+      &#{$color-key} {
+        background-color: $color;
+      }
+    }
+  }
+}
+
+// Add a class to set the foreground color to any color
+// in the $palette variable (2 levels deep).
+.fg- {
+  $deep: (accent, grey);
+  @each $color-key, $color in $palette {
+    @if index($deep, $color-key) {
+      @each $key, $value in $color {
+        &#{$color-key}-#{$key} {
+          color: $value;
+        }
+      }
+    } @else {
+      &#{$color-key} {
+        color: $color;
+      }
+    }
+  }
+}
+
+.full-height {
+  min-height: 100vh;
+}

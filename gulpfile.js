@@ -1,4 +1,5 @@
 const gulp      = require('gulp');              // Local gulp lib
+const gpug      = require('gulp-pug');          // To compile pug to html
 const gsass     = require('gulp-sass');         // To compile sass & scss files
 const gcsso     = require('gulp-csso');         // To compile optimize css
 const gwebpack  = require('webpack-stream');    // To use webpack with gulp
@@ -34,9 +35,12 @@ const LIBS_ROOT       = path.join(SRC_ROOT, LIBS_FOLDER);
 
 const features = [
   '.',
-  // 'disclaimer',
-  // '50x',
-  // '404'
+  'communication',
+  'finances',
+  'gestion',
+  'marketing',
+  'responsabilites',
+  'sociologie'
 ];
 
 
@@ -50,7 +54,7 @@ const features = [
  * build notifications and sources watchers.
  */
 gulp.task('build', (done) => {
-  gulp.parallel(buildHtml, buildSass, buildAssets)((error) => {
+  gulp.parallel(buildPug, buildSass, buildAssets)((error) => {
     let next = [buildJs];
     if(DEV) {
       next.push('watch');
@@ -97,7 +101,7 @@ gulp.task('clean:node_modules', () => {
 gulp.task('watch', () => {
   process.env.SNFX_WATCH = true;
   gulp.watch([path.join(SRC_ROOT, '/**/*.scss'), path.join(SRC_ROOT, '/**/*.sass')], buildSass);
-  gulp.watch([path.join(SRC_ROOT, '/**/*.html')], buildHtml);
+  gulp.watch([path.join(SRC_ROOT, '/**/*.pug')], buildPug);
   gulp.watch([path.join(ASSETS_ROOT, '/**/*')], buildAssets);
 });
 
@@ -130,7 +134,8 @@ function buildSass() {
         path.join(__dirname, 'node_modules')
       ]
     }))
-    .pipe(grep(/"[A-z./0-9-]*fonts\/([^"]*)"/g, '"assets/fonts/$1"'));
+    .pipe(grep(/"[A-z./0-9-]*fonts\/([^"]*)"/g, '"/assets/fonts/$1"'))
+    .pipe(grep(/"[A-z./0-9-]*images\/([^"]*)"/g, '"/assets/images/$1"'));
 
   if(PROD) {
     stream
@@ -161,21 +166,22 @@ function buildSass() {
 Object.defineProperty(buildSass, 'name', {value: 'build:sass'});
 
 /**
- * Copy html files to the dist folder.
+ * Build pug files into html and put them into the dist folder.
  */
-function buildHtml() {
+function buildPug() {
   let error = null;
   return gulp
-    .src(buildEntries('html'), {base: path.join(process.cwd(), SRC_ROOT)})
+    .src(buildEntries('pug'), {base: path.join(process.cwd(), SRC_ROOT)})
+    .pipe(gpug())
     .on('error', function(err) {
       error = err;
       gutil.log('[ERROR]'.red, error.message);
       this.emit('end');
     })
-    .on('end', () => notify('Html', error))
+    .on('end', () => notify('Pug', error))
     .pipe(gulp.dest(DIST_ROOT));
 }
-Object.defineProperty(buildHtml, 'name', {value: 'build:html'});
+Object.defineProperty(buildPug, 'name', {value: 'build:pug'});
 
 /**
  * Copies static files (e.g. pictures, .ico and things needed)

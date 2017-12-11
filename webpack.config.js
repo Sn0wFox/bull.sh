@@ -12,6 +12,15 @@ const PROD  = process.env.BULL_BUILD_MODE === 'prod';
 const DEV   = process.env.BULL_BUILD_MODE === 'dev';
 const DEBUG = !!process.env.BULL_DEBUG_MODE;
 
+const pages = [
+  'communication',
+  'finances',
+  'gestion',
+  'marketing',
+  'responsabilites',
+  'sociologie'
+];
+
 /**
  * The following config will be different for dev and prod mode.
  * Everything is based on the environment variable BULL_BUILD_MODE's value:
@@ -19,10 +28,7 @@ const DEBUG = !!process.env.BULL_DEBUG_MODE;
  *    - prod            : config for prod mode.
  */
 module.exports = {
-  entry: {
-    vendor: ['jquery', 'jquery.scrollex', 'jquery-placeholder', 'skel.min'],
-    home: './src/index.js'
-  },
+  entry: buildEntries(pages),
 
   output: {
     publicPath: '',
@@ -131,3 +137,23 @@ module.exports = {
     ignored: /node_modules/
   }
 };
+
+/**
+ * Build the entry object of the webpack configuration,
+ * using the vendor module and the home page along with
+ * each other given pages.
+ * @param pages Array The list of all other pages to build.
+ * @return Object The entry for the webpack config.
+ */
+function buildEntries(pages) {
+  let entries = {
+    vendor: ['jquery', 'jquery.scrollex', 'skel.min', 'skel-util'],
+    home: './src/index.js'
+  };
+
+  for(let page of pages) {
+    entries[path.join(page, 'index')] = `./src/${page}/index.js`
+  }
+
+  return entries;
+}
