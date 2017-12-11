@@ -29,7 +29,7 @@ function init() {
   $(function() {
 
     // Cache jquery request
-    let	$window = $(window);
+    let $window = $(window);
     let $body = $('body');
     let $banner = $('#bull-banner');
 
@@ -80,7 +80,41 @@ function init() {
     // Initialize header
     initHeader('#bull-header', $banner, $window)
 
+    // Init form buttons
+    $('#bull-toggle-newsletter').on('click', () => {
+      toggleForm('newsletter');
+    });
+    $('#bull-toggle-contact').on('click', () => {
+      toggleForm('contact');
+    });
   });
+}
 
+let newsFormOpen = false;
+let contactFormOpen = false;
 
+/**
+ * Toggle the given form by sliding it in or out
+ * from top to bottom.
+ * @param form The form to toogle. Either 'newsletter' or 'contact'.
+ */
+function toggleForm(form) {
+  let newsHash = '#bull-newsletter-form';
+  let contactHash = '#bull-contact-form';
+  let toggleSpeed = 300;  // ms
+
+  switch(form) {
+    case 'newsletter':
+      if(contactFormOpen) {
+        $(contactHash).slideToggle(toggleSpeed, () => contactFormOpen = false);
+      }
+      $(newsHash).slideToggle(toggleSpeed, () => newsFormOpen = !newsFormOpen);
+      break;
+    case 'contact':
+      if(newsFormOpen) {
+        $(newsHash).slideToggle(toggleSpeed, () => newsFormOpen = false);
+      }
+      $(contactHash).slideToggle(toggleSpeed, () => contactFormOpen = !contactFormOpen);
+      break;
+  }
 }

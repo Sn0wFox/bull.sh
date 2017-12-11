@@ -84,6 +84,59 @@ html
               span.icon.fa-code.major.style3
                 span.label Dolor
 
+      // Contact and newsletter
+      section#bull-contacts.cta.wrapper.bg-primary
+        .inner
+          header
+            h2 Vous &ecirc;tes curieux ?
+            p
+              | Souscrivez &agrave; notre newsletter
+          ul.actions.vertical
+            li
+              button#bull-toggle-newsletter.button.fit.secondary Souscrire
+
+        .inner
+          header
+            h2 Vous avez une question ?
+            p
+              | Contactez-nous
+
+          ul.actions.vertical
+            li
+              button#bull-toggle-contact.button.fit.secondary-hover Contact
+
+        #bull-contact-form.inner
+          hr
+          h4 Formulaire de contact
+          form(action='#')
+            .row.uniform
+              div(class='3u 5u(small) 12u$(xsmall)')
+                input(type='text', name='name', value='', placeholder='Votre nom')
+              div(class='9u 7u(small) 12u$(xsmall)')
+                input(type='email', name='email', value='', placeholder='Votre email')
+              div(class='12u$')
+                textarea#demo-message(name='message', placeholder='Votre message', rows='6')
+              div(class='12u$')
+                ul.actions
+                  li
+                    input.secondary.fit(type='submit', value='Envoyer')
+                  li
+                    input.fit.secondary-hover(type='reset', value='Reset')
+
+        #bull-newsletter-form.inner
+          hr
+          h4 Souscrivez &agrave; notre newsletter
+          .row.uniform
+            div(class='3u 5u(small) 12u$(xsmall)')
+              input(type='text', name='name', value='', placeholder='Votre nom')
+            div(class='9u 7u(small) 12u$(xsmall)')
+              input(type='email', name='email', value='', placeholder='Votre email')
+            div(class='12u$')
+              ul.actions
+                li
+                  input.secondary.fit(type='submit', value='Souscrire')
+
+
       include commons/footer
 
       // TODO: section 3: our values (3 columns etc)
