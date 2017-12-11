@@ -1,0 +1,11 @@
+mixin menu(links)
+  nav#nav
+    ul
+      li.special
+        a.menuToggle(href='#menu')
+          span Menu
+        #menu
+          ul
+            each link, label in links
+              li
+                a(href=link)= label
