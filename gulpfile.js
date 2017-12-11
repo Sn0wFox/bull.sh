@@ -35,7 +35,12 @@ const LIBS_ROOT       = path.join(SRC_ROOT, LIBS_FOLDER);
 
 const features = [
   '.',
-  'communication'
+  'communication',
+  'finances',
+  'gestion',
+  'marketing',
+  'responsabilites',
+  'sociologie'
 ];
 
 

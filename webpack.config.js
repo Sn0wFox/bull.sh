@@ -12,7 +12,14 @@ const PROD  = process.env.BULL_BUILD_MODE === 'prod';
 const DEV   = process.env.BULL_BUILD_MODE === 'dev';
 const DEBUG = !!process.env.BULL_DEBUG_MODE;
 
-const pages = ['communication'];
+const pages = [
+  'communication',
+  'finances',
+  'gestion',
+  'marketing',
+  'responsabilites',
+  'sociologie'
+];
 
 /**
  * The following config will be different for dev and prod mode.
