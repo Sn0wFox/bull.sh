@@ -147,7 +147,7 @@ module.exports = {
  */
 function buildEntries(pages) {
   let entries = {
-    vendor: ['jquery', 'jquery.scrollex', 'skel.min', 'skel-util'],
+    vendor: ['jquery', 'jquery.scrollex', 'skel.min', 'skel-util', 'notifyjs-browser'],
     home: './src/index.js'
   };
 

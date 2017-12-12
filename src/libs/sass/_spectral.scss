@@ -968,14 +968,6 @@
 			@include vendor('flex-direction', 'row-reverse');
 		}
 
-		@for $i from 1 through _misc(max-spotlights) {
-			$j: 0.075 * $i;
-
-			&:nth-child(#{$i}) {
-				background-color: rgba(0,0,0, $j);
-			}
-		}
-
 		@include breakpoint(large) {
 			.image {
 				width: 45%;
@@ -1587,7 +1579,7 @@
 
 /* CTA */
 
-	#cta {
+	.cta {
 		.inner {
 			@include vendor('display', 'flex');
 			max-width: 45em;

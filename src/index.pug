@@ -25,7 +25,6 @@ html
             ul.actions
               li
                 a.button.special.scrolly(href='#bull-pres') Découvrir comment
-        a.more.scrolly(href='#bull-pres') Learn More
 
       // Quotation and video
       section#bull-pres.wrapper.bull-wrapper.special.bg-accent-base.full-height
@@ -39,9 +38,9 @@ html
               |               pour leurs contrats, il y a Bull.sh
               span.quote.quote-end ”
             cite - Didier Berton, avocat et co-fondateur de Bull.sh
-          video(controls='')
+          video(controls='' class='11u 12u(medium)')
             source(src='https://files.slack.com/files-pri/T6A8KQ0TS-F89BXLZ18/video.mp4', type='video/mp4')
-            |             Your browser does not support the video tag.
+            |             Votre navigateur ne supporte pas cette video.
 
       // Why using bull.sh in three points
       section#bull-features.wrapper.alt.bg-primary
@@ -72,21 +71,76 @@ html
         .inner
           header.major
             h2 Nos valeurs
-          ul.icons.major
+          ul.icons.major.row.uniform
             // TODO: add text
+            li(class="4u 12u(medium)")
+              span.icon.fa-balance-scale.major
+              div.content Chez Bull.sh, nous croyons que le droit &agrave; une information saine et juste est capital.
+            li(class="4u 12u(medium)")
+              span.icon.fa-handshake-o.major
+              div.content Parce que nous savons à quel point un contrat malveillant peut nuire &agrave; votre entreprise,
+                |  nous sommes les mieux plac&eacute;s pour vous aider.
+            li(class="4u 12u(medium)")
+              span.icon.fa-leaf.major
+              div.content Bull.sh s'engage pour l'environnement en s'assurant que ses &eacute;missions de CO2 sont minimales.
+
+      // Contact and newsletter
+      section#bull-contacts.cta.wrapper.bg-primary
+        .inner
+          header
+            h2 Vous &ecirc;tes curieux ?
+            p
+              | Souscrivez &agrave; notre newsletter
+          ul.actions.vertical
             li
-              span.icon.fa-diamond.major.style1
-                span.label Lorem
+              button#bull-toggle-newsletter.button.fit.secondary
+                i.icon.fa-paper-plane
+                | Souscrire
+
+        .inner
+          header
+            h2 Vous avez une question ?
+            p
+              | Contactez-nous
+
+          ul.actions.vertical
             li
-              span.icon.fa-heart-o.major.style2
-                span.label Ipsum
-            li
-              span.icon.fa-code.major.style3
-                span.label Dolor
+              button#bull-toggle-contact.button.fit.secondary-hover
+                i.icon.fa-envelope-o
+                | Contact
+
+        #bull-contact-form.inner
+          hr
+          h4 Formulaire de contact
+          form
+            .row.uniform
+              div(class='3u 5u(small) 12u$(xsmall)')
+                input.required(type='text', name='name', value='', placeholder='Votre nom')
+              div(class='9u 7u(small) 12u$(xsmall)')
+                input.required(type='text', name='email', value='', placeholder='Votre email')
+              div(class='12u$')
+                textarea.required#demo-message(name='message', placeholder='Votre message', rows='6')
+              div(class='12u$')
+                ul.actions
+                  li
+                    input.secondary.fit(type='submit', value='Envoyer')
+                  li
+                    input.fit.secondary-hover(type='reset', value='Reset')
+
+        #bull-newsletter-form.inner
+          hr
+          h4 Souscrivez &agrave; notre newsletter
+          form
+            .row.uniform
+              div(class='3u 5u(small) 12u$(xsmall)')
+                input.required(type='text', name='name', value='', placeholder='Votre nom')
+              div(class='9u 7u(small) 12u$(xsmall)')
+                input.required(type='text', name='email', value='', placeholder='Votre email')
+              div(class='12u$')
+                ul.actions
+                  li
+                    input.secondary.fit(type='submit', value='Souscrire')
 
       include commons/footer
 
-      // TODO: section 3: our values (3 columns etc)
-      // TODO: section 4: subscribe to newsletter
-      // TODO: section 5: contact us
     script(src='home.js')

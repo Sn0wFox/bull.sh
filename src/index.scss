@@ -3,21 +3,27 @@
 
 @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700);
 
-.bull-wrapper {
-  // To avoid hiding content with the navbar (3em height + 1em for spacing)
-  padding-top: 4em;
-}
-
 #bull-home-wrapper {
   background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(255, 255, 255, 0.25)), url('https://images.pexels.com/photos/144234/bull-landscape-nature-mammal-144234.jpeg?w=1260&h=750&dpr=2&auto=compress&cs=tinysrgb') no-repeat fixed center center;
   background-size: cover;
   padding-top: 0;
+
+  ul.icons.major li {
+    padding: 1.5em !important;
+
+    .content {
+      padding: 1.5em 15px;
+    }
+  }
+}
+
+#bull-banner {
+  p {
+    text-shadow: 0px 0px 30px black, 0px 0px 30px black;
+  }
 }
 
 #bull-pres {
-  video {
-    width: 90%;
-  }
 
   blockquote {
     border: none;
@@ -44,5 +50,29 @@
         }
       }
     }
+  }
+}
+
+#bull-contacts {
+  input[type="text"], input[type="email"],
+  textarea {
+    background-color: rgba(map_get($palette, secondary), .2);
+  }
+
+  button i {
+    margin-right: 15px;
+  }
+
+  #bull-contact-form {
+    display: none;
+
+    input[type="text"], input[type="email"],
+    textarea {
+      background-color: rgba(map_get($palette, secondary), .2);
+    }
+  }
+
+  #bull-newsletter-form {
+    display: none;
   }
 }

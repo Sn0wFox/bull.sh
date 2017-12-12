@@ -38,6 +38,52 @@
   }
 }
 
+.bull-wrapper {
+  // To avoid hiding content with the navbar (3em height + 1em for spacing)
+  padding-top: 4em;
+}
+
 .full-height {
   min-height: 100vh;
+}
+
+button.secondary,
+input.secondary {
+  background: map_get($palette, secondary);
+  box-shadow: none;
+  transition: box-shadow 0.2s ease;
+
+  &:hover {
+    background: map_get($palette, secondary);
+    box-shadow: 0 0 0 2px map_get($palette, white);;
+  }
+}
+
+button.secondary-hover,
+input.secondary-hover {
+  &:hover {
+    background-color: rgba(map_get($palette, secondary), .2);
+  }
+}
+
+#bull-header {
+  h1 {
+    opacity: 1;
+  }
+}
+
+.notifyjs-corner {
+  z-index: 99999 !important;
+  top: 3em !important;
+}
+
+.notifyjs-arrow {
+  border-bottom: 5px solid map_get(map_get($palette, accent), darker) !important;
+}
+
+.notifyjs-bull-base {
+  white-space: nowrap;
+  background-color: map_get(map_get($palette, accent), darker);
+  color: map_get($palette, white);
+  padding: 7px 12px;
 }

@@ -1,20 +1,21 @@
 import $ from 'jquery';
+import 'notifyjs-browser';
 import 'skel-util';
 
 /**
  * Scroll to the given hash during the given time.
  * @param hash The id to scroll to. Default to #.
  * @param time The time allowed to scroll, in ms. Default to 500.
+ * @param offset The position offset. Default to -50 (px).
  */
-export function runAnimatedScroll(hash, time) {
-  time = time || 500;
+export function runAnimatedScroll(hash, time, offset) {
+  time = time === 0 ? time : time || 500;
   hash = hash || '#';
+  offset = offset === 0 ? offset : offset || -50;
 
   $('html, body').animate({
-    scrollTop: $(hash).offset().top
-  }, time, () => {
-    window.location.hash = hash;
-  })
+    scrollTop: $(hash).offset().top + offset
+  }, time)
 }
 
 /**
@@ -42,12 +43,11 @@ export function initMenu(hash, $body) {
 /**
  * Initialize the header by triggering its appearing
  * when the viewport leaves the given element.
- * @param hash The hash of the header to init.
+ * @param $header The jQuery object representing the header to init.
  * @param $triggeringElement The jquery object representing the element which will trigger the header appearing.
  * @param $window The jquery window object.
  */
-export function initHeader(hash, $triggeringElement, $window) {
-  let $header = $(hash);
+export function initHeader($header, $triggeringElement, $window) {
   if ($triggeringElement.length > 0 && $header.hasClass('alt')) {
     $window.on('resize', () => { $window.trigger('scroll'); });
     $triggeringElement.scrollex({
@@ -57,4 +57,10 @@ export function initHeader(hash, $triggeringElement, $window) {
       leave:      function() { $header.removeClass('alt'); }
     });
   }
+}
+
+export function initNotifications() {
+  $.notify.addStyle('bull', {
+    html: '<div><span data-notify-text/></div>'
+  });
 }
