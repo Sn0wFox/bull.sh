@@ -72,17 +72,18 @@ html
         .inner
           header.major
             h2 Nos valeurs
-          ul.icons.major
+          ul.icons.major.row.uniform
             // TODO: add text
-            li
-              span.icon.fa-diamond.major.style1
-                span.label Lorem
-            li
-              span.icon.fa-heart-o.major.style2
-                span.label Ipsum
-            li
-              span.icon.fa-code.major.style3
-                span.label Dolor
+            li(class="4u 12u(medium)")
+              span.icon.fa-balance-scale.major
+              div.content Chez Bull.sh, nous croyons que le droit &agrave; une information saine et juste est capital.
+            li(class="4u 12u(medium)")
+              span.icon.fa-handshake-o.major
+              div.content Parce que nous savons à quel point un contrat malveillant peut nuire &agrave; votre entreprise,
+                |  nous sommes les mieux plac&eacute;s pour vous aider.
+            li(class="4u 12u(medium)")
+              span.icon.fa-leaf.major
+              div.content Bull.sh s'engage pour l'environnement en s'assurant que ses &eacute;missions de CO2 sont minimales.
 
       // Contact and newsletter
       section#bull-contacts.cta.wrapper.bg-primary
