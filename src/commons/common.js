@@ -9,9 +9,9 @@ import 'skel-util';
  * @param offset The position offset. Default to -50 (px).
  */
 export function runAnimatedScroll(hash, time, offset) {
-  time = time || 500;
+  time = time === 0 ? time : time || 500;
   hash = hash || '#';
-  offset = offset || -50;
+  offset = offset === 0 ? offset : offset || -50;
 
   $('html, body').animate({
     scrollTop: $(hash).offset().top + offset
