@@ -73,7 +73,7 @@ function init() {
     $('.scrolly')
       .on('click', (event) => {
         event.preventDefault();
-        runAnimatedScroll(event.target.hash, 1000);
+        runAnimatedScroll(event.target.hash, 1000, 0);
       });
 
     // Initialize panel menu
