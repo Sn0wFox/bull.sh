@@ -1,7 +1,3 @@
-// Polyfill
-// import './libs/js/ie/html5shiv';
-// import './libs/js/ie/respond.min';
-
 // Libs
 import $    from 'jquery';
 import skel from 'skel.min';
