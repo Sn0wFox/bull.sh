@@ -6,6 +6,11 @@ import 'notifyjs-browser';
 
 import {runAnimatedScroll, initMenu, initHeader, initNotifications} from './commons/common';
 
+
+// Handle forms opening / closing
+let newsFormOpen = false;
+let contactFormOpen = false;
+
 // Init page
 init();
 
@@ -83,9 +88,15 @@ function init() {
     // Init form buttons
     $('#bull-toggle-newsletter').on('click', () => {
       toggleForm('newsletter');
+      if(!newsFormOpen) { // It will be opened in a few seconds
+        runAnimatedScroll('#bull-newsletter-form', 1000);
+      }
     });
     $('#bull-toggle-contact').on('click', () => {
       toggleForm('contact');
+      if(!contactFormOpen) {  // It will be opened in a few seconds
+        runAnimatedScroll('#bull-contact-form');
+      }
     });
 
     // Init form notifications
@@ -116,8 +127,6 @@ function init() {
   });
 }
 
-let newsFormOpen = false;
-let contactFormOpen = false;
 
 /**
  * Toggle the given form by sliding it in or out

@@ -6,16 +6,16 @@ import 'skel-util';
  * Scroll to the given hash during the given time.
  * @param hash The id to scroll to. Default to #.
  * @param time The time allowed to scroll, in ms. Default to 500.
+ * @param offset The position offset. Default to -50 (px).
  */
-export function runAnimatedScroll(hash, time) {
+export function runAnimatedScroll(hash, time, offset) {
   time = time || 500;
   hash = hash || '#';
+  offset = offset || -50;
 
   $('html, body').animate({
-    scrollTop: $(hash).offset().top
-  }, time, () => {
-    window.location.hash = hash;
-  })
+    scrollTop: $(hash).offset().top + offset
+  }, time)
 }
 
 /**
