@@ -64,16 +64,17 @@ Author: aj@lkn.io | @ajlkn
 
 Credits:
 
-- Demo Images:
-    Unsplash (unsplash.com)
+- Images:
+    Pexels (pexels.com)
 
 - Icons:
-    Font Awesome (fortawesome.github.com/Font-Awesome)
+    Font Awesome (fontawesome.io)
 
 - Other:
     jQuery (jquery.com)
-    html5shiv.js (@afarkas @jdalton @jon_neal @rem)
-    background-size polyfill (github.com/louisremi)
+    Notify.js (notifyjs.com/)
     Misc. Sass functions (@HugoGiraudel)
     Respond.js (j.mp/respondjs)
     Skel (skel.io)
+    
+- And more: npm webpack gulp pug sass babel express node-notifier colors concurrently del merge-stream cross-env, and all plugins.
