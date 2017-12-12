@@ -71,3 +71,19 @@ input.secondary-hover {
     opacity: 1;
   }
 }
+
+.notifyjs-corner {
+  z-index: 99999 !important;
+  top: 3em !important;
+}
+
+.notifyjs-arrow {
+  border-bottom: 5px solid map_get(map_get($palette, accent), darker) !important;
+}
+
+.notifyjs-bull-base {
+  white-space: nowrap;
+  background-color: map_get(map_get($palette, accent), darker);
+  color: map_get($palette, white);
+  padding: 7px 12px;
+}

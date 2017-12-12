@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import 'notifyjs-browser';
 import 'skel-util';
 
 /**
@@ -57,4 +58,10 @@ export function initHeader(hash, $triggeringElement, $window) {
       leave:      function() { $header.removeClass('alt'); }
     });
   }
+}
+
+export function initNotifications() {
+  $.notify.addStyle('bull', {
+    html: '<div><span data-notify-text/></div>'
+  });
 }

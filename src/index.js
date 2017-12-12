@@ -6,8 +6,9 @@
 import $    from 'jquery';
 import skel from 'skel.min';
 import 'skel-util';
+import 'notifyjs-browser';
 
-import {runAnimatedScroll, initMenu, initHeader} from './commons/common';
+import {runAnimatedScroll, initMenu, initHeader, initNotifications} from './commons/common';
 
 // Init page
 init();
@@ -78,7 +79,10 @@ function init() {
     initMenu('#menu', $body);
 
     // Initialize header
-    initHeader('#bull-header', $banner, $window)
+    initHeader('#bull-header', $banner, $window);
+
+    // Add custom notification style
+    initNotifications();
 
     // Init form buttons
     $('#bull-toggle-newsletter').on('click', () => {
@@ -86,6 +90,32 @@ function init() {
     });
     $('#bull-toggle-contact').on('click', () => {
       toggleForm('contact');
+    });
+
+    // Init form notifications
+    $('#bull-contact-form').find('form').on('submit', function(event) {
+      event.preventDefault();
+      let $form = $(this);
+      let valid = basicValidateForm($form);
+
+      if(valid) {
+        $.notify(`Merci ${$form.find('input[name="name"]').val()}, votre message a été transmis à notre équipe.`, {
+          style: 'bull'
+        });
+        $form.trigger('reset');
+      }
+    });
+    $('#bull-newsletter-form').find('form').on('submit', function(event) {
+      event.preventDefault();
+      let $form = $(this);
+      let valid = basicValidateForm($form);
+
+      if(valid) {
+        $.notify(`Merci ${$form.find('input[name="name"]').val()}, vous recevrez bientôt notre newsletter hebdomadaire. A très vite!.`, {
+          style: 'bull'
+        });
+        $form.trigger('reset');
+      }
     });
   });
 }
@@ -117,4 +147,27 @@ function toggleForm(form) {
       $(contactHash).slideToggle(toggleSpeed, () => contactFormOpen = !contactFormOpen);
       break;
   }
+}
+
+/**
+ * Validate a given form by checking that each field with the class
+ * .required is not empty.
+ * If a field is not valid, display a notification under it.
+ * @param $form The jQuery object representing the form to validate.
+ * @return {boolean} Whether the form is valid or not.
+ */
+function basicValidateForm($form) {
+  let valid = true;
+  $form.find('.required').each((_, elem) => {
+    let $input = $(elem);
+    if(!$input.val()) {
+      valid = false;
+      $input.notify('Ce champ ne doit pas être vide', {
+        style: 'bull',
+        autoHideDelay: 2000
+      });
+      return false;
+    }
+  });
+  return valid;
 }

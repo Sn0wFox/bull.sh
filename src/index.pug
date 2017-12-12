@@ -108,14 +108,14 @@ html
         #bull-contact-form.inner
           hr
           h4 Formulaire de contact
-          form(action='#')
+          form
             .row.uniform
               div(class='3u 5u(small) 12u$(xsmall)')
-                input(type='text', name='name', value='', placeholder='Votre nom')
+                input.required(type='text', name='name', value='', placeholder='Votre nom')
               div(class='9u 7u(small) 12u$(xsmall)')
-                input(type='email', name='email', value='', placeholder='Votre email')
+                input.required(type='text', name='email', value='', placeholder='Votre email')
               div(class='12u$')
-                textarea#demo-message(name='message', placeholder='Votre message', rows='6')
+                textarea.required#demo-message(name='message', placeholder='Votre message', rows='6')
               div(class='12u$')
                 ul.actions
                   li
@@ -126,16 +126,16 @@ html
         #bull-newsletter-form.inner
           hr
           h4 Souscrivez &agrave; notre newsletter
-          .row.uniform
-            div(class='3u 5u(small) 12u$(xsmall)')
-              input(type='text', name='name', value='', placeholder='Votre nom')
-            div(class='9u 7u(small) 12u$(xsmall)')
-              input(type='email', name='email', value='', placeholder='Votre email')
-            div(class='12u$')
-              ul.actions
-                li
-                  input.secondary.fit(type='submit', value='Souscrire')
-
+          form
+            .row.uniform
+              div(class='3u 5u(small) 12u$(xsmall)')
+                input.required(type='text', name='name', value='', placeholder='Votre nom')
+              div(class='9u 7u(small) 12u$(xsmall)')
+                input.required(type='text', name='email', value='', placeholder='Votre email')
+              div(class='12u$')
+                ul.actions
+                  li
+                    input.secondary.fit(type='submit', value='Souscrire')
 
       include commons/footer
 
