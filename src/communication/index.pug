@@ -15,21 +15,43 @@ html
       // Main
       article#main
         include ../commons/pages/article-header.mixin.pug
-        +articleHeader('Communication', 'Some subtitle')
+        +articleHeader('Communication', 'Benchmarking, chartes graphiques et plan de communication')
 
         section.wrapper.bg-white.fg-black
           .inner
-            h3.fg-black Lorem ipsum dolor
+            h3.fg-black Synth&egrave;se
             p
-              | Morbi mattis mi consectetur tortor elementum, varius pellentesque velit convallis. Aenean tincidunt lectus auctor mauris maximus, ac scelerisque ipsum tempor. Duis vulputate ex et ex tincidunt, quis lacinia velit aliquet. Duis non efficitur nisi, id malesuada justo. Maecenas sagittis felis ac sagittis semper. Curabitur purus leo, tempus sed finibus eget, fringilla quis risus. Maecenas et lorem quis sem varius sagittis et a est. Maecenas iaculis iaculis sem. Donec vel dolor at arcu tincidunt bibendum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce ut aliquet justo. Donec id neque ipsum. Integer eget ultricies odio. Nam vel ex a orci fringilla tincidunt. Aliquam eleifend ligula non velit accumsan cursus. Etiam ut gravida sapien.
+              | L'&eacute;tude aboutissant &agrave; la strat&eacute;gie de communication a permit de d&eacute;gager les valeurs que Bull.sh devait mettre en avant aupr&egrave;s de ses clients, &agrave; savoir l'honn&ecirc;tet&eacute; et la volont&eacute; d'aider, ainsi que la qualit&eacute; des services et des moyens de protection des donn&eacute;es. La strat&eacute;gie de communication s'articule donc autour d'un ma&icirc;tre mot: la&nbsp;
+              strong.fg-black confiance
+              | .
             p
-              | Vestibulum ultrices risus velit, sit amet blandit massa auctor sit amet. Sed eu lectus sem. Phasellus in odio at ipsum porttitor mollis id vel diam. Praesent sit amet posuere risus, eu faucibus lectus. Vivamus ex ligula, tempus pulvinar ipsum in, auctor porta quam. Proin nec dui cursus, posuere dui eget interdum. Fusce lectus magna, sagittis at facilisis vitae, pellentesque at etiam. Quisque posuere leo quis sem commodo, vel scelerisque nisi scelerisque. Suspendisse id quam vel tortor tincidunt suscipit. Nullam auctor orci eu dolor consectetur, interdum ullamcorper ante tincidunt. Mauris felis nec felis elementum varius.
+              | Une &eacute;tude pr&eacute;liminaire bas&eacute;e sur un benchmarking a permis l'&eacute;tablissement de chartes graphiques et typographiques en accord avec les objectifs pr&eacute;c&eacute;dents. Une partie de ces chartes est d&eacute;di&eacute;e &agrave; ce site web (qui en est donc le reflet), une autre est d&eacute;di&eacute;e aux livrables et enfin une derni&egrave;re partie est destin&eacute;e &agrave; l'application Bull.sh, qui n'a pas encore &eacute;t&eacute; d&eacute;velopp&eacute;e.
+              | Il est a noter que cette derni&egrave;re partie est &eacute;norm&eacute;ment confondu avec celle de ce site web, puisque l'application Bull.sh sera une application web.
+            p
+              | Enfin, une analyse des cibles et du march&eacute; a permis de formuler un plan de communication, qui sera d&eacute;taill&eacute; dans le livrable associ&eacute;.&nbsp;
+              | Ce plan d&eacute;fini les objectifs de la campagne de commnication de Bull.sh, dont les principaux sont:
+              ul
+                li Faire connaitre Bull.sh puis accro&icirc;tre sa notori&eacute;t&eacute;
+                li Forger l'image de Bull.sh avec les valeurs d&eacute;crites pr&eacute;c&eacute;demment
+                li Mettre en avant les arguments de vente de l'application Bull.sh
+              | On pourra &eacute;galement noter dans cette synth&egrave;se que la campagne touchera les domaines de la communication&nbsp;
+              i B to B&nbsp;
+              | et&nbsp;
+              i coporate
+              | , et s'articulera donc autour d'une communication &eacute;v&egrave;nementielle et &agrave; base de d&eacute;marchage.
             hr
-            h4.fg-black Feugiat aliquam
-            p
-              | Nam sapien ante, varius in pulvinar vitae, rhoncus id massa. Donec varius ex in mauris ornare, eget euismod urna egestas. Etiam lacinia tempor ipsum, sodales porttitor justo. Aliquam dolor quam, semper in tortor eu, volutpat efficitur quam. Fusce nec fermentum nisl. Aenean erat diam, tempus aliquet erat.
-            p
-              | Etiam iaculis nulla ipsum, et pharetra libero rhoncus ut. Phasellus rutrum cursus velit, eget condimentum nunc blandit vel. In at pulvinar lectus. Morbi diam ante, vulputate et imperdiet eget, fermentum non dolor. Ut eleifend sagittis tincidunt. Sed viverra commodo mi, ac rhoncus justo. Duis neque ligula, elementum ut enim vel, posuere finibus justo. Vivamus facilisis maximus nibh quis pulvinar. Quisque hendrerit in ipsum id tellus facilisis fermentum. Proin mauris dui, at vestibulum sit amet, auctor bibendum neque.
+            h4.fg-black Livrables
+            ul
+              li
+                a(href='#') Plan de communication
+                |  (inclut le benchmarking et les chartes graphiques)
+              li
+                p La vid&eacute;o de pr&eacute;sentation de l'application est disponible ici:&nbsp;
+                  a(href='#') http://some.example/bull.mp4
+            p Pour les livrables de responsabilit&eacute; civile et soci&eacute;tale, voir&nbsp;
+              a(href='/responsabilites') la partie associ&eacute;e
+              | .
+
 
       include ../commons/footer
     script(src='/communication/index.js')
