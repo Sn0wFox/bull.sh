@@ -54,6 +54,10 @@
 }
 
 #bull-contacts {
+  span {
+    font-family: "Open Sans", Helvetica, sans-serif !important;
+  }
+  
   input[type="text"], input[type="email"],
   textarea {
     background-color: rgba(map_get($palette, secondary), .2);
