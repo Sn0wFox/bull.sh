@@ -5,4 +5,4 @@ let $body = $('body');
 let $window = $(window);
 
 initMenu('#menu', $body);
-initHeader('#bull-header', $('#bull-article-header'), $window);
+initHeader($('#bull-header'), $('#bull-article-header'), $window);

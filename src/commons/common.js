@@ -43,12 +43,11 @@ export function initMenu(hash, $body) {
 /**
  * Initialize the header by triggering its appearing
  * when the viewport leaves the given element.
- * @param hash The hash of the header to init.
+ * @param $header The jQuery object representing the header to init.
  * @param $triggeringElement The jquery object representing the element which will trigger the header appearing.
  * @param $window The jquery window object.
  */
-export function initHeader(hash, $triggeringElement, $window) {
-  let $header = $(hash);
+export function initHeader($header, $triggeringElement, $window) {
   if ($triggeringElement.length > 0 && $header.hasClass('alt')) {
     $window.on('resize', () => { $window.trigger('scroll'); });
     $triggeringElement.scrollex({

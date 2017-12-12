@@ -33,6 +33,7 @@ function init() {
     // Cache jquery request
     let $window = $(window);
     let $body = $('body');
+    let $header = $('#bull-header');
     let $banner = $('#bull-banner');
 
     // Disable animations/transitions until the page has loaded.
@@ -43,6 +44,9 @@ function init() {
         $body.removeClass('is-loading');
       }, 100);
     });
+
+    // Disable action on header (but menu)
+    $header.addClass('alt');
 
     // Handle mobile size
     if (skel.vars.mobile) {
@@ -80,7 +84,7 @@ function init() {
     initMenu('#menu', $body);
 
     // Initialize header
-    initHeader('#bull-header', $banner, $window);
+    initHeader($header, $banner, $window);
 
     // Add custom notification style
     initNotifications();
