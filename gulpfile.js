@@ -35,7 +35,6 @@ const LIBS_ROOT       = path.join(SRC_ROOT, LIBS_FOLDER);
 
 const features = [
   '.',
-  'business',
   'communication',
   'finances',
   'gestion',
