@@ -15,21 +15,21 @@ html
       // Main
       article#main
         include ../commons/pages/article-header.mixin.pug
-        +articleHeader('Gestion', 'Some subtitle')
+        +articleHeader('Gestion de projet', 'Organisation et tableau de bord')
 
         section.wrapper.bg-white.fg-black
           .inner
-            h3.fg-black Lorem ipsum dolor
+            h3.fg-black Synth&egrave;se
             p
-              | Morbi mattis mi consectetur tortor elementum, varius pellentesque velit convallis. Aenean tincidunt lectus auctor mauris maximus, ac scelerisque ipsum tempor. Duis vulputate ex et ex tincidunt, quis lacinia velit aliquet. Duis non efficitur nisi, id malesuada justo. Maecenas sagittis felis ac sagittis semper. Curabitur purus leo, tempus sed finibus eget, fringilla quis risus. Maecenas et lorem quis sem varius sagittis et a est. Maecenas iaculis iaculis sem. Donec vel dolor at arcu tincidunt bibendum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce ut aliquet justo. Donec id neque ipsum. Integer eget ultricies odio. Nam vel ex a orci fringilla tincidunt. Aliquam eleifend ligula non velit accumsan cursus. Etiam ut gravida sapien.
+              | Ce projet de cr&eacute;ation de start-up a fait l'objet d'un suivi d&eacute;s son d&eacute;but. Un tableau de bord nous a permis de suivre pour chaque s&eacute;ance l'avancement de chacun dans le travail qu'il avait pr&eacute;vu de faire ainsi que son niveau de moral.
+              | Nous avons ainsi obtenu des indicateurs d'avancement du projet, de r&eacute;partition des t&acirc;ches, d'&eacute;volution du moral et d'utilisation des ressources.
             p
-              | Vestibulum ultrices risus velit, sit amet blandit massa auctor sit amet. Sed eu lectus sem. Phasellus in odio at ipsum porttitor mollis id vel diam. Praesent sit amet posuere risus, eu faucibus lectus. Vivamus ex ligula, tempus pulvinar ipsum in, auctor porta quam. Proin nec dui cursus, posuere dui eget interdum. Fusce lectus magna, sagittis at facilisis vitae, pellentesque at etiam. Quisque posuere leo quis sem commodo, vel scelerisque nisi scelerisque. Suspendisse id quam vel tortor tincidunt suscipit. Nullam auctor orci eu dolor consectetur, interdum ullamcorper ante tincidunt. Mauris felis nec felis elementum varius.
+              | Il est &agrave; noter que nous avons fait pivoter notre projet en cours de route : d'une cible diversifi&eacute;e, nous nous sommes tourn&eacute;s exclusivement vers un public professionnel. Cela explique que certains livrables contiennent des r&eacute;f&eacute;rences &agrave; une client&egrave;le et un type de service non retenus finalement, par exemple le contecte politique ou publicitaire pour les journalistes ou le grand publique.
             hr
-            h4.fg-black Feugiat aliquam
-            p
-              | Nam sapien ante, varius in pulvinar vitae, rhoncus id massa. Donec varius ex in mauris ornare, eget euismod urna egestas. Etiam lacinia tempor ipsum, sodales porttitor justo. Aliquam dolor quam, semper in tortor eu, volutpat efficitur quam. Fusce nec fermentum nisl. Aenean erat diam, tempus aliquet erat.
-            p
-              | Etiam iaculis nulla ipsum, et pharetra libero rhoncus ut. Phasellus rutrum cursus velit, eget condimentum nunc blandit vel. In at pulvinar lectus. Morbi diam ante, vulputate et imperdiet eget, fermentum non dolor. Ut eleifend sagittis tincidunt. Sed viverra commodo mi, ac rhoncus justo. Duis neque ligula, elementum ut enim vel, posuere finibus justo. Vivamus facilisis maximus nibh quis pulvinar. Quisque hendrerit in ipsum id tellus facilisis fermentum. Proin mauris dui, at vestibulum sit amet, auctor bibendum neque.
+            h4.fg-black Livrables
+            ul
+              li
+                a(href='#') Tableau de bord
 
       include ../commons/footer
     script(src='/gestion/index.js')
