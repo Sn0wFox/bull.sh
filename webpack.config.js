@@ -13,6 +13,7 @@ const DEV   = process.env.BULL_BUILD_MODE === 'dev';
 const DEBUG = !!process.env.BULL_DEBUG_MODE;
 
 const pages = [
+  'charte-graphique',
   'communication',
   'finances',
   'gestion',

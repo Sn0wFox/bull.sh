@@ -27,12 +27,12 @@
     @if index($deep, $color-key) {
       @each $key, $value in $color {
         &#{$color-key}-#{$key} {
-          color: $value;
+          color: $value !important;
         }
       }
     } @else {
       &#{$color-key} {
-        color: $color;
+        color: $color !important;
       }
     }
   }
@@ -48,7 +48,8 @@
 }
 
 button.secondary,
-input.secondary {
+input.secondary,
+a.secondary {
   background: map_get($palette, secondary);
   box-shadow: none;
   transition: box-shadow 0.2s ease;
@@ -60,9 +61,23 @@ input.secondary {
 }
 
 button.secondary-hover,
-input.secondary-hover {
+input.secondary-hover,
+a.secondary-hover {
   &:hover {
     background-color: rgba(map_get($palette, secondary), .2);
+  }
+}
+
+.button i.icon {
+  margin-right: 15px;
+}
+
+.container {
+  padding: 20px;
+
+  ul {
+    margin: 0;
+    padding: 10px 0;
   }
 }
 
